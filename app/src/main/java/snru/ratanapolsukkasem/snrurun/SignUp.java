@@ -19,7 +19,7 @@ public class SignUp extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton choiceRadioButton, choice2RdioButton, choice3RasioButton,
             choice4RadioButton, choice5RadioButton;
-    private String nameString,userString,passwordString, avataString;
+    private String nameString,userString,passwordString, avataString ="0";
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -34,10 +34,43 @@ public class SignUp extends AppCompatActivity {
 
         bindWidget();
 
+            //Radid Button Controler
+        radioButtonController();
+
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }   //main Method
+
+    private void radioButtonController() {
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int i) {
+
+                switch (i) {
+                    case R.id.radioButton:
+                        avataString = "0";
+                        break;
+                    case R.id.radioButton2:
+                        avataString = "1";
+                        break;
+                    case R.id.radioButton3:
+                        avataString = "2";
+                        break;
+                    case R.id.radioButton4:
+                        avataString = "3";
+                        break;
+                    case R.id.radioButton5:
+                        avataString = "4";
+                        break;
+                }
+
+            }
+        });
+
+    }
 
     private void bindWidget() {
         nameEditText = (EditText) findViewById(R.id.editText);
@@ -47,7 +80,7 @@ public class SignUp extends AppCompatActivity {
         choice2RdioButton = (RadioButton) findViewById(R.id.radioButton2);
         choice3RasioButton = (RadioButton) findViewById(R.id.radioButton3);
         choice4RadioButton = (RadioButton) findViewById(R.id.radioButton4);
-        choice5RadioButton = (RadioButton) findViewById(R.id.radioButton5);
+          //choice5RadioButton = (RadioButton) findViewById(R.id.radioButton5);
 
     }
 
@@ -67,6 +100,7 @@ public class SignUp extends AppCompatActivity {
             myAlet.myDialog(this,"มีช่องว่าง","กรุณากรอกทุกช่องค่ะ");
         }
         else {
+
 
         }
 
